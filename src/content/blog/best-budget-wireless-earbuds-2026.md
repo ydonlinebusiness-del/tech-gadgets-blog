@@ -56,7 +56,7 @@ We spent 3 weeks testing 12 pairs of budget earbuds, logging 120+ hours of liste
 
 **ANC performance:** In our coffee shop test, it blocked roughly 60% of ambient chatter — not as good as Sony's $250 WF-1000XM5, but significantly better than earbuds without ANC.
 
-**[Check Price on Amazon →](https://www.amazon.com/s?k=soundcore+a3i&tag=techpickr-21)**
+**[Check Price on Amazon →](https://www.amazon.com/s?k=soundcore+a3i&tag=techpickr04-20)**
 
 ---
 
@@ -71,7 +71,7 @@ We spent 3 weeks testing 12 pairs of budget earbuds, logging 120+ hours of liste
 - Codecs: SBC, AAC
 - Price: ~$25
 
-**[Check Price on Amazon →](https://www.amazon.com/s?k=qcy+t13&tag=techpickr-21)**
+**[Check Price on Amazon →](https://www.amazon.com/s?k=qcy+t13&tag=techpickr04-20)**
 
 ---
 
@@ -85,7 +85,7 @@ If you love heavy bass for workouts or hip-hop, the TOZO T10 punches well above 
 - Water resistance: IPX8 (best in class at this price)
 - Price: ~$22
 
-**[Check Price on Amazon →](https://www.amazon.com/s?k=tozo+t10&tag=techpickr-21)**
+**[Check Price on Amazon →](https://www.amazon.com/s?k=tozo+t10&tag=techpickr04-20)**
 
 ---
 
