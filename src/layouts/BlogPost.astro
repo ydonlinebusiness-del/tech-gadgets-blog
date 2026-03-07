@@ -48,7 +48,7 @@ const schemaType = productName ? 'review' : 'article';
 		<Header />
 		<main>
 			<article itemscope itemtype="https://schema.org/Article">
-				<!-- Hero image -->
+
 				{heroImage && (
 					<div class="hero-image">
 						<Image
@@ -63,18 +63,17 @@ const schemaType = productName ? 'review' : 'article';
 				)}
 
 				<div class="prose">
-					<!-- Category + Tags -->
-					{category && (
-						<div class="meta-top">
-							<span class="category-badge">{category}</span>
-							{tags.slice(0, 3).map((tag) => (
-								<span class="tag">#{tag}</span>
-							))}
-						</div>
-					)}
+					<!-- Breadcrumb-style meta -->
+					<div class="meta-top">
+						{category && <span class="category-badge">{category}</span>}
+						{tags.slice(0, 3).map((tag) => (
+							<span class="tag">#{tag}</span>
+						))}
+					</div>
 
-					<!-- Dates (GEO signal: AI engines prefer recent, timestamped content) -->
-					<div class="date" itemprop="datePublished" content={pubDate.toISOString()}>
+					<!-- Dates -->
+					<div class="date-row" itemprop="datePublished" content={pubDate.toISOString()}>
+						<span class="date-icon">📅</span>
 						<FormattedDate date={pubDate} />
 						{updatedDate && (
 							<span class="updated" itemprop="dateModified" content={updatedDate.toISOString()}>
@@ -85,29 +84,36 @@ const schemaType = productName ? 'review' : 'article';
 
 					<!-- Title -->
 					<h1 itemprop="headline">{title}</h1>
-					<hr />
 
-					<!-- Affiliate disclaimer (required by Amazon TOS + FTC) -->
+					<!-- Affiliate disclaimer -->
 					{affiliateDisclaimer !== false && (
 						<div class="affiliate-disclaimer" role="note" aria-label="Affiliate disclosure">
-							<strong>⚠️ Disclosure:</strong> This post contains affiliate links. If you purchase through our links, we may earn a small commission at no extra cost to you. We only recommend products we genuinely believe in. <a href="/about#affiliate">Learn more</a>.
+							<span class="disclaimer-icon">💡</span>
+							<span>
+								<strong>Affiliate Disclosure:</strong> This post contains affiliate links.
+								If you buy through our links, we may earn a small commission at no extra cost to you.
+								We only recommend products we genuinely believe in.
+								<a href="/about#affiliate">Learn more</a>.
+							</span>
 						</div>
 					)}
 
-					<!-- Article content slot -->
-					<div itemprop="articleBody">
+					<hr />
+
+					<!-- Article body -->
+					<div class="article-body" itemprop="articleBody">
 						<slot />
 					</div>
 
-					<!-- Article footer -->
-					<div class="article-footer">
-						{tags.length > 0 && (
+					<!-- Tags footer -->
+					{tags.length > 0 && (
+						<div class="article-footer">
+							<strong class="tags-label">Tags:</strong>
 							<div class="tags-list">
-								<strong>Tags:</strong>
-								{tags.map((tag) => <span class="tag">#{tag}</span>)}
+								{tags.map((tag) => <span class="tag-pill">#{tag}</span>)}
 							</div>
-						)}
-					</div>
+						</div>
+					)}
 				</div>
 			</article>
 		</main>
@@ -117,82 +123,187 @@ const schemaType = productName ? 'review' : 'article';
 
 <style>
 	main {
-		width: calc(100% - 2em);
-		max-width: 100%;
-		margin: 0;
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 2em 1.5em 5em;
 	}
+
 	.hero-image {
-		width: 100%;
+		margin-bottom: 2rem;
 	}
 	.hero-image img {
-		display: block;
-		margin: 0 auto;
-		border-radius: 12px;
-		box-shadow: var(--box-shadow);
+		width: 100%;
+		height: auto;
+		border-radius: 16px;
+		box-shadow: 0 4px 24px rgba(0,0,0,0.1);
 	}
+
 	.prose {
-		width: 740px;
-		max-width: calc(100% - 2em);
-		margin: auto;
-		padding: 1.5em 1em 3em;
-		color: rgb(var(--gray-dark));
+		color: #1e293b;
 	}
+
+	/* Meta top */
 	.meta-top {
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
 		flex-wrap: wrap;
-		margin-bottom: 0.5rem;
+		margin-bottom: 0.6rem;
 	}
 	.category-badge {
-		background: #2337ff;
+		background: #f97316;
 		color: white;
-		padding: 0.15rem 0.6rem;
-		border-radius: 20px;
-		font-size: 0.72rem;
+		padding: 0.2rem 0.75rem;
+		border-radius: 100px;
+		font-size: 0.7rem;
 		font-weight: 700;
 		text-transform: uppercase;
-		letter-spacing: 0.04em;
+		letter-spacing: 0.07em;
 	}
 	.tag {
-		color: #606f9f;
-		font-size: 0.8rem;
+		color: #94a3b8;
+		font-size: 0.78rem;
 	}
-	.date {
-		color: rgb(var(--gray));
-		font-size: 0.9rem;
-		margin-bottom: 0.5rem;
+
+	/* Date */
+	.date-row {
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+		color: #64748b;
+		font-size: 0.85rem;
+		margin-bottom: 0.75rem;
 	}
+	.date-icon { font-size: 0.9rem; }
 	.updated {
 		font-style: italic;
+		color: #94a3b8;
 	}
+
+	/* Title */
 	h1 {
-		margin: 0.25em 0 0.5em;
-		font-size: 2.4rem;
-		line-height: 1.15;
+		font-size: 2.25rem;
+		line-height: 1.2;
+		color: #0f172a;
+		font-weight: 800;
+		margin: 0 0 1.25rem;
+		letter-spacing: -0.03em;
 	}
-	hr {
-		margin: 1rem 0 1.5rem;
-	}
+
+	/* Disclaimer */
 	.affiliate-disclaimer {
-		background: #fffbeb;
-		border: 1px solid #f5d174;
-		border-radius: 8px;
-		padding: 0.75rem 1rem;
+		display: flex;
+		gap: 0.6rem;
+		align-items: flex-start;
+		background: #fff7ed;
+		border: 1px solid #fed7aa;
+		border-left: 4px solid #f97316;
+		border-radius: 10px;
+		padding: 0.85rem 1rem;
 		font-size: 0.82rem;
-		color: #5a4a00;
-		margin-bottom: 2rem;
+		color: #7c3f00;
+		line-height: 1.55;
+		margin-bottom: 1.5rem;
 	}
+	.disclaimer-icon { flex-shrink: 0; margin-top: 0.05rem; }
+	.affiliate-disclaimer a { color: #f97316; }
+	.affiliate-disclaimer strong { color: #c2540a; }
+
+	hr {
+		border: none;
+		border-top: 2px solid #f1f5f9;
+		margin: 1.5rem 0 2rem;
+	}
+
+	/* Article body — scoped styles for markdown content */
+	.article-body :global(h2) {
+		font-size: 1.5rem;
+		font-weight: 800;
+		color: #0f172a;
+		margin-top: 2.5rem;
+		margin-bottom: 0.75rem;
+		padding-bottom: 0.5rem;
+		border-bottom: 2px solid #f1f5f9;
+	}
+	.article-body :global(h3) {
+		font-size: 1.2rem;
+		font-weight: 700;
+		color: #0f172a;
+		margin-top: 1.75rem;
+		margin-bottom: 0.5rem;
+	}
+	.article-body :global(p) {
+		margin-bottom: 1.3em;
+		line-height: 1.8;
+		color: #334155;
+	}
+	.article-body :global(ul), .article-body :global(ol) {
+		padding-left: 1.5em;
+		margin-bottom: 1.3em;
+	}
+	.article-body :global(li) {
+		margin-bottom: 0.35em;
+		color: #334155;
+	}
+	.article-body :global(strong) {
+		color: #0f172a;
+		font-weight: 700;
+	}
+
+	/* Amazon CTA links */
+	.article-body :global(a[href*="amazon.com"]) {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		background: #f97316;
+		color: white !important;
+		padding: 0.55rem 1.1rem;
+		border-radius: 8px;
+		font-weight: 700;
+		font-size: 0.88rem;
+		text-decoration: none !important;
+		margin: 0.75rem 0;
+		transition: background 0.2s, transform 0.15s;
+		box-shadow: 0 2px 6px rgba(249,115,22,0.3);
+	}
+	.article-body :global(a[href*="amazon.com"]:hover) {
+		background: #c2540a;
+		transform: translateY(-1px);
+		color: white !important;
+	}
+
+	/* Article footer */
 	.article-footer {
 		margin-top: 3rem;
 		padding-top: 1.5rem;
-		border-top: 1px solid rgb(var(--gray-light));
+		border-top: 1px solid #e2e8f0;
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		flex-wrap: wrap;
+	}
+	.tags-label {
+		font-size: 0.82rem;
+		color: #64748b;
 	}
 	.tags-list {
 		display: flex;
 		gap: 0.5rem;
 		flex-wrap: wrap;
-		font-size: 0.85rem;
-		color: #606f9f;
+	}
+	.tag-pill {
+		background: #f1f5f9;
+		color: #475569;
+		padding: 0.2rem 0.6rem;
+		border-radius: 100px;
+		font-size: 0.75rem;
+		border: 1px solid #e2e8f0;
+	}
+
+	/* Responsive */
+	@media (max-width: 640px) {
+		main { padding: 1em 1em 4em; }
+		h1 { font-size: 1.7rem; }
+		.article-body :global(h2) { font-size: 1.25rem; }
 	}
 </style>

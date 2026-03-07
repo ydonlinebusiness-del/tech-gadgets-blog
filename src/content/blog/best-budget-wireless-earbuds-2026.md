@@ -20,11 +20,11 @@ If you want ANC on a budget, go with Soundcore. If you need the absolute best ca
 
 | Product | Price | Battery | ANC | Best For |
 |---|---|---|---|---|
-| Soundcore A3i | ~$35 | 35h total | ✅ Yes | Best Overall |
-| QCY T13 | ~$25 | 40h total | ❌ No | Call Quality |
-| TOZO T10 | ~$22 | 25h total | ❌ No | Bass Lovers |
-| JLab Go Air Pop | ~$20 | 32h total | ❌ No | Absolute Budget |
-| 1MORE ComfoBuds Z | ~$40 | 24h total | ✅ Yes | Sleep & Travel |
+| Soundcore A3i | $35 | 35h total | ✅ Yes | Best Overall |
+| QCY T13 | $25 | 40h total | ❌ No | Call Quality |
+| TOZO T10 | $22 | 25h total | ❌ No | Bass Lovers |
+| JLab Go Air Pop | $20 | 32h total | ❌ No | Absolute Budget |
+| 1MORE ComfoBuds Z | $40 | 24h total | ✅ Yes | Sleep & Travel |
 
 ---
 
@@ -50,7 +50,7 @@ We spent 3 weeks testing 12 pairs of budget earbuds, logging 120+ hours of liste
 - Driver: 11mm dynamic driver
 - Codecs: AAC, SBC
 - Water resistance: IPX5
-- Price: ~$35
+- Price: $35
 
 **Sound quality:** The A3i has a warm, slightly bass-forward signature that sounds great for pop, hip-hop, and podcasts. Treble is smooth without being muddy. Not audiophile-grade, but impressive at this price.
 
@@ -69,7 +69,7 @@ We spent 3 weeks testing 12 pairs of budget earbuds, logging 120+ hours of liste
 - ANC: No
 - Microphones: 4 (CVC 8.0)
 - Codecs: SBC, AAC
-- Price: ~$25
+- Price: $25
 
 **[Check Price on Amazon →](https://www.amazon.com/s?k=qcy+t13&tag=techpickr04-20)**
 
@@ -83,7 +83,7 @@ If you love heavy bass for workouts or hip-hop, the TOZO T10 punches well above 
 - Battery: 6h buds + 18h case = 25h total (shorter than rivals)
 - ANC: No
 - Water resistance: IPX8 (best in class at this price)
-- Price: ~$22
+- Price: $22
 
 **[Check Price on Amazon →](https://www.amazon.com/s?k=tozo+t10&tag=techpickr04-20)**
 
