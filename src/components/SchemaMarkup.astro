@@ -1,0 +1,115 @@
+---
+/**
+ * SchemaMarkup.astro
+ * Generates JSON-LD structured data for SEO + GEO (AI search engines).
+ * Place inside <head> on article pages.
+ */
+
+interface Props {
+	type: 'article' | 'review' | 'faq' | 'howto';
+	title: string;
+	description: string;
+	url: string;
+	datePublished: string;
+	dateModified?: string;
+	// For review / product schema
+	productName?: string;
+	productBrand?: string;
+	ratingValue?: number; // 1-5
+	ratingCount?: number;
+	priceRange?: string;
+	// For FAQ schema
+	faqs?: Array<{ question: string; answer: string }>;
+}
+
+const {
+	type,
+	title,
+	description,
+	url,
+	datePublished,
+	dateModified,
+	productName,
+	productBrand,
+	ratingValue,
+	ratingCount,
+	priceRange,
+	faqs,
+} = Astro.props;
+
+const siteUrl = Astro.site?.toString() ?? 'https://techpickr.com';
+const logoUrl = `${siteUrl}favicon.svg`;
+
+// Base Article schema
+const articleSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: title,
+	description: description,
+	url: url,
+	datePublished: datePublished,
+	dateModified: dateModified ?? datePublished,
+	author: {
+		'@type': 'Organization',
+		name: 'TechPickr',
+		url: siteUrl,
+	},
+	publisher: {
+		'@type': 'Organization',
+		name: 'TechPickr',
+		logo: {
+			'@type': 'ImageObject',
+			url: logoUrl,
+		},
+	},
+	mainEntityOfPage: {
+		'@type': 'WebPage',
+		'@id': url,
+	},
+};
+
+// Product + Review schema (for buying guides)
+const reviewSchema =
+	type === 'review' && productName
+		? {
+				'@context': 'https://schema.org',
+				'@type': 'Product',
+				name: productName,
+				brand: productBrand
+					? { '@type': 'Brand', name: productBrand }
+					: undefined,
+				description: description,
+				...(priceRange && { offers: { '@type': 'AggregateOffer', priceCurrency: 'USD', description: priceRange } }),
+				...(ratingValue && {
+					aggregateRating: {
+						'@type': 'AggregateRating',
+						ratingValue: ratingValue,
+						bestRating: 5,
+						worstRating: 1,
+						ratingCount: ratingCount ?? 1,
+					},
+				}),
+			}
+		: null;
+
+// FAQ schema
+const faqSchema =
+	faqs && faqs.length > 0
+		? {
+				'@context': 'https://schema.org',
+				'@type': 'FAQPage',
+				mainEntity: faqs.map((faq) => ({
+					'@type': 'Question',
+					name: faq.question,
+					acceptedAnswer: {
+						'@type': 'Answer',
+						text: faq.answer,
+					},
+				})),
+			}
+		: null;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+{reviewSchema && <script type="application/ld+json" set:html={JSON.stringify(reviewSchema)} />}
+{faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}

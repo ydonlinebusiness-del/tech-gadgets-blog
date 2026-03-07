@@ -1,0 +1,111 @@
+---
+/**
+ * FaqSection.astro
+ * Renders an accessible FAQ accordion with FAQ Schema markup inline.
+ * Critical for GEO: AI engines like Perplexity / ChatGPT frequently
+ * pull FAQ pairs as direct answers. Also earns Google Featured Snippets.
+ */
+
+interface FaqItem {
+	question: string;
+	answer: string;
+}
+
+interface Props {
+	faqs: FaqItem[];
+}
+
+const { faqs } = Astro.props;
+
+// Build FAQ schema for this section
+const faqSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqs.map((faq) => ({
+		'@type': 'Question',
+		name: faq.question,
+		acceptedAnswer: {
+			'@type': 'Answer',
+			text: faq.answer,
+		},
+	})),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<section class="faq-section" aria-labelledby="faq-heading">
+	<h2 id="faq-heading">Frequently Asked Questions</h2>
+	<div class="faq-list">
+		{faqs.map((faq, i) => (
+			<details class="faq-item" name="faq-group">
+				<summary class="faq-question">
+					<span>{faq.question}</span>
+					<span class="faq-icon" aria-hidden="true">+</span>
+				</summary>
+				<div class="faq-answer">
+					<p>{faq.answer}</p>
+				</div>
+			</details>
+		))}
+	</div>
+</section>
+
+<style>
+	.faq-section {
+		margin: 2.5rem 0;
+	}
+	.faq-section h2 {
+		font-size: 1.6rem;
+		margin-bottom: 1.25rem;
+	}
+	.faq-list {
+		border: 1px solid #e8ecf0;
+		border-radius: 10px;
+		overflow: hidden;
+	}
+	.faq-item {
+		border-bottom: 1px solid #e8ecf0;
+	}
+	.faq-item:last-child {
+		border-bottom: none;
+	}
+	.faq-question {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1rem 1.25rem;
+		cursor: pointer;
+		font-weight: 600;
+		font-size: 0.95rem;
+		list-style: none;
+		gap: 1rem;
+		transition: background 0.15s;
+	}
+	.faq-question:hover {
+		background: #f7f9fc;
+	}
+	.faq-item[open] .faq-question {
+		background: #f0f4ff;
+		color: #2337ff;
+	}
+	.faq-icon {
+		font-size: 1.25rem;
+		flex-shrink: 0;
+		font-weight: 300;
+		transition: transform 0.2s;
+	}
+	.faq-item[open] .faq-icon {
+		transform: rotate(45deg);
+	}
+	.faq-answer {
+		padding: 0 1.25rem 1rem;
+		font-size: 0.9rem;
+		color: #444;
+	}
+	.faq-answer p {
+		margin: 0;
+	}
+	/* Remove default summary marker in all browsers */
+	summary::-webkit-details-marker { display: none; }
+</style>

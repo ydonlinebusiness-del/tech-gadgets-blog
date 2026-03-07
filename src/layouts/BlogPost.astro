@@ -1,0 +1,198 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import SchemaMarkup from '../components/SchemaMarkup.astro';
+
+type Props = CollectionEntry<'blog'>['data'] & { url: string };
+
+const {
+	title,
+	description,
+	pubDate,
+	updatedDate,
+	heroImage,
+	tags = [],
+	category,
+	affiliateDisclaimer,
+	productName,
+	productBrand,
+	productPriceRange,
+	url,
+} = Astro.props;
+
+const canonicalUrl = url ?? Astro.url.toString();
+const schemaType = productName ? 'review' : 'article';
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={`${title} | TechPickr`} description={description} />
+		<SchemaMarkup
+			type={schemaType}
+			title={title}
+			description={description}
+			url={canonicalUrl}
+			datePublished={pubDate.toISOString()}
+			dateModified={(updatedDate ?? pubDate).toISOString()}
+			productName={productName}
+			productBrand={productBrand}
+			priceRange={productPriceRange}
+		/>
+	</head>
+
+	<body>
+		<Header />
+		<main>
+			<article itemscope itemtype="https://schema.org/Article">
+				<!-- Hero image -->
+				{heroImage && (
+					<div class="hero-image">
+						<Image
+							width={1020}
+							height={510}
+							src={heroImage}
+							alt={title}
+							loading="eager"
+							itemprop="image"
+						/>
+					</div>
+				)}
+
+				<div class="prose">
+					<!-- Category + Tags -->
+					{category && (
+						<div class="meta-top">
+							<span class="category-badge">{category}</span>
+							{tags.slice(0, 3).map((tag) => (
+								<span class="tag">#{tag}</span>
+							))}
+						</div>
+					)}
+
+					<!-- Dates (GEO signal: AI engines prefer recent, timestamped content) -->
+					<div class="date" itemprop="datePublished" content={pubDate.toISOString()}>
+						<FormattedDate date={pubDate} />
+						{updatedDate && (
+							<span class="updated" itemprop="dateModified" content={updatedDate.toISOString()}>
+								· Updated <FormattedDate date={updatedDate} />
+							</span>
+						)}
+					</div>
+
+					<!-- Title -->
+					<h1 itemprop="headline">{title}</h1>
+					<hr />
+
+					<!-- Affiliate disclaimer (required by Amazon TOS + FTC) -->
+					{affiliateDisclaimer !== false && (
+						<div class="affiliate-disclaimer" role="note" aria-label="Affiliate disclosure">
+							<strong>⚠️ Disclosure:</strong> This post contains affiliate links. If you purchase through our links, we may earn a small commission at no extra cost to you. We only recommend products we genuinely believe in. <a href="/about#affiliate">Learn more</a>.
+						</div>
+					)}
+
+					<!-- Article content slot -->
+					<div itemprop="articleBody">
+						<slot />
+					</div>
+
+					<!-- Article footer -->
+					<div class="article-footer">
+						{tags.length > 0 && (
+							<div class="tags-list">
+								<strong>Tags:</strong>
+								{tags.map((tag) => <span class="tag">#{tag}</span>)}
+							</div>
+						)}
+					</div>
+				</div>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	main {
+		width: calc(100% - 2em);
+		max-width: 100%;
+		margin: 0;
+	}
+	.hero-image {
+		width: 100%;
+	}
+	.hero-image img {
+		display: block;
+		margin: 0 auto;
+		border-radius: 12px;
+		box-shadow: var(--box-shadow);
+	}
+	.prose {
+		width: 740px;
+		max-width: calc(100% - 2em);
+		margin: auto;
+		padding: 1.5em 1em 3em;
+		color: rgb(var(--gray-dark));
+	}
+	.meta-top {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+		margin-bottom: 0.5rem;
+	}
+	.category-badge {
+		background: #2337ff;
+		color: white;
+		padding: 0.15rem 0.6rem;
+		border-radius: 20px;
+		font-size: 0.72rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+	}
+	.tag {
+		color: #606f9f;
+		font-size: 0.8rem;
+	}
+	.date {
+		color: rgb(var(--gray));
+		font-size: 0.9rem;
+		margin-bottom: 0.5rem;
+	}
+	.updated {
+		font-style: italic;
+	}
+	h1 {
+		margin: 0.25em 0 0.5em;
+		font-size: 2.4rem;
+		line-height: 1.15;
+	}
+	hr {
+		margin: 1rem 0 1.5rem;
+	}
+	.affiliate-disclaimer {
+		background: #fffbeb;
+		border: 1px solid #f5d174;
+		border-radius: 8px;
+		padding: 0.75rem 1rem;
+		font-size: 0.82rem;
+		color: #5a4a00;
+		margin-bottom: 2rem;
+	}
+	.article-footer {
+		margin-top: 3rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid rgb(var(--gray-light));
+	}
+	.tags-list {
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+		font-size: 0.85rem;
+		color: #606f9f;
+	}
+</style>

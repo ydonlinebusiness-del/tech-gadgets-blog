@@ -1,0 +1,156 @@
+---
+/**
+ * AffiliateCard.astro
+ * Product card with affiliate link CTA. Used inside article content.
+ * Generates a visually appealing product box with key specs, rating, and CTA button.
+ */
+
+interface Props {
+	name: string;
+	description: string;
+	price: string;          // e.g. "~$49"
+	rating: number;         // 1-5 (can be decimal, e.g. 4.5)
+	pros: string[];
+	cons: string[];
+	affiliateUrl: string;   // Full Amazon affiliate URL
+	badge?: string;         // e.g. "Best Overall", "Budget Pick", "Editor's Choice"
+	imageAlt?: string;
+}
+
+const { name, description, price, rating, pros, cons, affiliateUrl, badge, imageAlt } = Astro.props;
+
+const fullStars = Math.floor(rating);
+const hasHalf = rating % 1 >= 0.5;
+const emptyStars = 5 - fullStars - (hasHalf ? 1 : 0);
+const starsDisplay = '★'.repeat(fullStars) + (hasHalf ? '½' : '') + '☆'.repeat(emptyStars);
+---
+
+<div class="affiliate-card">
+	{badge && <span class="badge">{badge}</span>}
+	<div class="card-body">
+		<h3 class="product-name">{name}</h3>
+		<p class="product-desc">{description}</p>
+		<div class="rating-row">
+			<span class="stars" aria-label={`${rating} out of 5 stars`}>{starsDisplay}</span>
+			<span class="rating-num">{rating}/5</span>
+			<span class="price">{price}</span>
+		</div>
+		<div class="pros-cons-mini">
+			<ul class="pros-mini">
+				{pros.slice(0, 3).map((p) => <li>✅ {p}</li>)}
+			</ul>
+			<ul class="cons-mini">
+				{cons.slice(0, 2).map((c) => <li>❌ {c}</li>)}
+			</ul>
+		</div>
+		<a
+			href={affiliateUrl}
+			target="_blank"
+			rel="nofollow noopener sponsored"
+			class="cta-button"
+			aria-label={`Check price for ${name} on Amazon`}
+		>
+			Check Price on Amazon →
+		</a>
+		<p class="affiliate-note">
+			<small>⚠️ Affiliate link — we may earn a commission at no extra cost to you.</small>
+		</p>
+	</div>
+</div>
+
+<style>
+	.affiliate-card {
+		position: relative;
+		border: 2px solid #e8ecf0;
+		border-radius: 12px;
+		padding: 1.5rem;
+		margin: 2rem 0;
+		background: #fff;
+		box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+	}
+	.badge {
+		position: absolute;
+		top: -12px;
+		left: 1.5rem;
+		background: #2337ff;
+		color: white;
+		padding: 0.2rem 0.8rem;
+		border-radius: 20px;
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+	}
+	.product-name {
+		font-size: 1.2rem;
+		margin: 0.5rem 0 0.25rem;
+		color: #0f1219;
+	}
+	.product-desc {
+		font-size: 0.9rem;
+		color: #606f9f;
+		margin-bottom: 0.75rem;
+	}
+	.rating-row {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		margin-bottom: 1rem;
+	}
+	.stars {
+		color: #f5a623;
+		font-size: 1.1rem;
+		letter-spacing: 2px;
+	}
+	.rating-num {
+		font-weight: 600;
+		color: #22293a;
+	}
+	.price {
+		margin-left: auto;
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: #2337ff;
+	}
+	.pros-cons-mini {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0.5rem;
+		margin-bottom: 1.25rem;
+	}
+	.pros-mini, .cons-mini {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		font-size: 0.85rem;
+	}
+	.pros-mini li, .cons-mini li {
+		margin-bottom: 0.3rem;
+	}
+	.cta-button {
+		display: block;
+		text-align: center;
+		background: #ff9900;
+		color: #111 !important;
+		padding: 0.75rem 1.5rem;
+		border-radius: 8px;
+		font-weight: 700;
+		text-decoration: none !important;
+		font-size: 1rem;
+		transition: background 0.2s;
+	}
+	.cta-button:hover {
+		background: #e68900;
+	}
+	.affiliate-note {
+		text-align: center;
+		color: #999;
+		margin: 0.5rem 0 0;
+		font-size: 0.75rem;
+	}
+	@media (max-width: 520px) {
+		.pros-cons-mini {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

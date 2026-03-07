@@ -1,0 +1,164 @@
+---
+/**
+ * ComparisonTable.astro
+ * A product comparison table. AI search engines (GEO) love structured
+ * tabular data — they often cite comparison tables directly in answers.
+ */
+
+interface Product {
+	name: string;
+	price: string;
+	rating: number;
+	bestFor: string;
+	highlight?: string; // e.g. "Best Overall"
+	affiliateUrl: string;
+}
+
+interface Props {
+	products: Product[];
+	category?: string; // e.g. "Wireless Earbuds"
+}
+
+const { products, category } = Astro.props;
+---
+
+<div class="comparison-wrapper" role="region" aria-label={category ? `${category} comparison table` : 'Product comparison'}>
+	<div class="table-scroll">
+		<table class="comparison-table">
+			<thead>
+				<tr>
+					<th scope="col">Product</th>
+					<th scope="col">Price</th>
+					<th scope="col">Rating</th>
+					<th scope="col">Best For</th>
+					<th scope="col">Link</th>
+				</tr>
+			</thead>
+			<tbody>
+				{products.map((product) => (
+					<tr class={product.highlight ? 'highlighted' : ''}>
+						<td>
+							<strong>{product.name}</strong>
+							{product.highlight && <span class="highlight-badge">{product.highlight}</span>}
+						</td>
+						<td class="price-cell">{product.price}</td>
+						<td class="rating-cell">
+							<span class="star-rating" aria-label={`${product.rating} out of 5`}>
+								{'★'.repeat(Math.round(product.rating))}{'☆'.repeat(5 - Math.round(product.rating))}
+							</span>
+							<span class="rating-num">{product.rating}</span>
+						</td>
+						<td>{product.bestFor}</td>
+						<td>
+							<a
+								href={product.affiliateUrl}
+								target="_blank"
+								rel="nofollow noopener sponsored"
+								class="table-cta"
+								aria-label={`Check price for ${product.name}`}
+							>
+								View →
+							</a>
+						</td>
+					</tr>
+				))}
+			</tbody>
+		</table>
+	</div>
+	<p class="table-disclaimer">
+		<small>Prices shown are approximate and subject to change. Affiliate links used.</small>
+	</p>
+</div>
+
+<style>
+	.comparison-wrapper {
+		margin: 2rem 0;
+	}
+	.table-scroll {
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		border-radius: 10px;
+		border: 1px solid #e8ecf0;
+	}
+	.comparison-table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.9rem;
+	}
+	.comparison-table thead {
+		background: #2337ff;
+		color: white;
+	}
+	.comparison-table th {
+		padding: 0.75rem 1rem;
+		text-align: left;
+		font-weight: 600;
+		white-space: nowrap;
+	}
+	.comparison-table td {
+		padding: 0.75rem 1rem;
+		border-bottom: 1px solid #e8ecf0;
+		vertical-align: middle;
+	}
+	.comparison-table tbody tr:last-child td {
+		border-bottom: none;
+	}
+	.comparison-table tbody tr:hover {
+		background: #f7f9fc;
+	}
+	.comparison-table tbody tr.highlighted {
+		background: #f0f4ff;
+	}
+	.highlighted td:first-child {
+		border-left: 3px solid #2337ff;
+	}
+	.highlight-badge {
+		display: inline-block;
+		margin-left: 0.5rem;
+		background: #2337ff;
+		color: white;
+		font-size: 0.65rem;
+		padding: 0.1rem 0.5rem;
+		border-radius: 20px;
+		vertical-align: middle;
+		font-weight: 600;
+	}
+	.price-cell {
+		font-weight: 700;
+		color: #2337ff;
+		white-space: nowrap;
+	}
+	.rating-cell {
+		white-space: nowrap;
+	}
+	.star-rating {
+		color: #f5a623;
+		letter-spacing: 1px;
+	}
+	.rating-num {
+		margin-left: 0.25rem;
+		font-size: 0.8rem;
+		color: #666;
+	}
+	.table-cta {
+		display: inline-block;
+		background: #ff9900;
+		color: #111 !important;
+		padding: 0.3rem 0.75rem;
+		border-radius: 6px;
+		font-weight: 600;
+		text-decoration: none !important;
+		font-size: 0.85rem;
+		white-space: nowrap;
+		transition: background 0.15s;
+	}
+	.table-cta:hover {
+		background: #e68900;
+	}
+	.table-disclaimer {
+		text-align: right;
+		color: #999;
+		margin: 0.5rem 0 0;
+		font-size: 0.75rem;
+	}
+</style>

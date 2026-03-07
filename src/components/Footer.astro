@@ -1,0 +1,91 @@
+---
+const today = new Date();
+---
+
+<footer>
+	<div class="footer-inner">
+		<div class="footer-brand">
+			<span class="logo">⚡ TechPickr</span>
+			<p class="tagline">Honest tech reviews to help you spend smarter.</p>
+		</div>
+		<div class="footer-links">
+			<a href="/blog">All Reviews</a>
+			<a href="/about">About</a>
+			<a href="/about#affiliate">Affiliate Disclosure</a>
+			<a href="/rss.xml">RSS Feed</a>
+		</div>
+	</div>
+
+	<div class="affiliate-footer-notice">
+		<p>
+			<strong>Affiliate Disclosure:</strong> TechPickr participates in the Amazon Associates program and other affiliate programs.
+			When you purchase through links on this site, we may earn a small commission at no additional cost to you.
+			This helps us keep the site running. We only recommend products we genuinely believe in.
+		</p>
+	</div>
+
+	<div class="copyright">
+		&copy; {today.getFullYear()} TechPickr. All rights reserved.
+	</div>
+</footer>
+
+<style>
+	footer {
+		background: #0f1219;
+		color: #9aa5c2;
+		padding: 3rem 1.5rem 2rem;
+		margin-top: 4rem;
+	}
+	.footer-inner {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		max-width: 1000px;
+		margin: 0 auto 2rem;
+		gap: 2rem;
+		flex-wrap: wrap;
+	}
+	.footer-brand .logo {
+		font-size: 1.2rem;
+		font-weight: 800;
+		color: #fff;
+	}
+	.tagline {
+		margin: 0.4rem 0 0;
+		font-size: 0.85rem;
+		color: #606f9f;
+	}
+	.footer-links {
+		display: flex;
+		gap: 1.5rem;
+		flex-wrap: wrap;
+		align-items: center;
+	}
+	.footer-links a {
+		color: #9aa5c2;
+		text-decoration: none;
+		font-size: 0.88rem;
+		transition: color 0.15s;
+	}
+	.footer-links a:hover {
+		color: #fff;
+	}
+	.affiliate-footer-notice {
+		max-width: 1000px;
+		margin: 0 auto 1.5rem;
+		border-top: 1px solid #1e2436;
+		padding-top: 1.5rem;
+		font-size: 0.78rem;
+		color: #606f9f;
+		line-height: 1.6;
+	}
+	.affiliate-footer-notice strong {
+		color: #9aa5c2;
+	}
+	.copyright {
+		max-width: 1000px;
+		margin: 0 auto;
+		font-size: 0.78rem;
+		color: #454f6b;
+	}
+</style>

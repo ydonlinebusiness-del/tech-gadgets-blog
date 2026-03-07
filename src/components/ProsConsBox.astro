@@ -1,0 +1,71 @@
+---
+/**
+ * ProsConsBox.astro
+ * A clean pros/cons box — great for GEO (AI search engines love clear,
+ * structured comparisons they can cite directly).
+ */
+
+interface Props {
+	pros: string[];
+	cons: string[];
+	productName?: string;
+}
+
+const { pros, cons, productName } = Astro.props;
+---
+
+<div class="pros-cons-box" aria-label={productName ? `Pros and cons of ${productName}` : 'Pros and Cons'}>
+	<div class="pros-side">
+		<h4 class="section-title pros-title">✅ Pros</h4>
+		<ul>
+			{pros.map((pro) => <li>{pro}</li>)}
+		</ul>
+	</div>
+	<div class="cons-side">
+		<h4 class="section-title cons-title">❌ Cons</h4>
+		<ul>
+			{cons.map((con) => <li>{con}</li>)}
+		</ul>
+	</div>
+</div>
+
+<style>
+	.pros-cons-box {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
+		margin: 1.5rem 0;
+		border-radius: 10px;
+		overflow: hidden;
+		border: 1px solid #e8ecf0;
+	}
+	.pros-side {
+		background: #f0faf4;
+		padding: 1.25rem;
+	}
+	.cons-side {
+		background: #fff5f5;
+		padding: 1.25rem;
+	}
+	.section-title {
+		font-size: 1rem !important;
+		margin: 0 0 0.75rem !important;
+	}
+	.pros-title { color: #1a7a40; }
+	.cons-title { color: #c0392b; }
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	li {
+		font-size: 0.9rem;
+		margin-bottom: 0.4rem;
+		line-height: 1.4;
+	}
+	@media (max-width: 520px) {
+		.pros-cons-box {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

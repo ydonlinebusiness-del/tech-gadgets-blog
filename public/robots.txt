@@ -1,0 +1,41 @@
+# Allow all crawlers by default
+User-agent: *
+Allow: /
+
+# === GEO: Explicitly allow all major AI crawlers ===
+# OpenAI / ChatGPT
+User-agent: GPTBot
+Allow: /
+
+# Anthropic / Claude
+User-agent: ClaudeBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+
+# Google AI (Gemini, AI Overviews, Bard)
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+
+# Apple
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
+# Common AI scrapers
+User-agent: CCBot
+Allow: /
+User-agent: omgili
+Allow: /
+
+# Sitemap location
+Sitemap: https://techpickr.com/sitemap-index.xml
