@@ -5,8 +5,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	// ← Update this to your real domain once deployed!
-	site: 'https://techpickr.com',
+	site: 'https://tech-gadgets-blog.vercel.app',
 	integrations: [
 		mdx(),
 		sitemap({

@@ -38,4 +38,4 @@ User-agent: omgili
 Allow: /
 
 # Sitemap location
-Sitemap: https://techpickr.com/sitemap-index.xml
+Sitemap: https://tech-gadgets-blog.vercel.app/sitemap-index.xml
