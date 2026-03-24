@@ -27,10 +27,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: 5e006580df15d589b24fa8d8338cb58d
-          projectName: tech-gadgets-blog
-          directory: dist
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: 5e006580df15d589b24fa8d8338cb58d
+        run: npx wrangler pages deploy dist --project-name tech-gadgets-blog
