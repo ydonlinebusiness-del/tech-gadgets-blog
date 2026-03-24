@@ -1,0 +1,35 @@
+name: F1 Sprint Qualifying Update
+
+on:
+  schedule:
+    - cron: '30 13 * * 6'  # Sa 13:30 UTC (15:30 CET) - nach dem Sprint-Qualifying
+  workflow_dispatch:
+
+jobs:
+  f1-sprint-update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        working-directory: scripts
+        run: npm install
+
+      - name: Install Playwright browser
+        working-directory: scripts
+        run: npx playwright install chromium --with-deps
+
+      - name: Run F1 sprint update
+        working-directory: scripts
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          KICKTIPP_USERNAME: ${{ secrets.KICKTIPP_USERNAME }}
+          KICKTIPP_PASSWORD: ${{ secrets.KICKTIPP_PASSWORD }}
+        run: node f1-sprint-update.mjs

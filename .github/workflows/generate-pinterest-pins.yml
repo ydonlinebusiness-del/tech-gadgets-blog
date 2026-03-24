@@ -1,0 +1,46 @@
+name: Generate Pinterest Pins
+
+on:
+  schedule:
+    - cron: '0 8 * * 2,4'  # Di/Do 10:00 CET (08:00 UTC)
+  workflow_dispatch:
+
+jobs:
+  generate-pins:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Generate Pinterest pins
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          PROMPT=$(cat .github/prompts/generate-pinterest-pins.md)
+          claude --print "$PROMPT" --dangerously-skip-permissions
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "TechPickr Bot"
+          git config user.email "bot@techpickr.com"
+          git add src/content/blog/ pinterest/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            COMMIT_DATE=$(date +%Y-%m-%d)
+            git commit -m "feat: pinterest pins generated $COMMIT_DATE"
+            git push
+          fi

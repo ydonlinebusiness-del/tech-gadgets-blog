@@ -1,0 +1,35 @@
+name: F1 Kicktipp Predictions
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # Täglich 06:00 UTC (08:00 CET) - prüft ob Rennwochenende
+  workflow_dispatch:
+
+jobs:
+  f1-predict:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        working-directory: scripts
+        run: npm install
+
+      - name: Install Playwright browser
+        working-directory: scripts
+        run: npx playwright install chromium --with-deps
+
+      - name: Run F1 predictions
+        working-directory: scripts
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          KICKTIPP_USERNAME: ${{ secrets.KICKTIPP_USERNAME }}
+          KICKTIPP_PASSWORD: ${{ secrets.KICKTIPP_PASSWORD }}
+        run: node f1-predictions.mjs
