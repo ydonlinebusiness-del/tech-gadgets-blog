@@ -11,6 +11,8 @@ You are running in GitHub Actions CI. Use relative paths from the repo root.
 
 Do NOT run git commands — the workflow handles that automatically.
 
+> **Cost limit:** Use a maximum of **4 web searches** total. Make each search count — combine topic research, product specs, and pricing into as few searches as possible.
+
 ---
 
 ## Step 1: Topic Research
