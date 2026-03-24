@@ -98,9 +98,9 @@ async function enterPredictions(predictions) {
     // Login
     console.log('[F1] Logge ein bei kicktipp.de...');
     await page.goto('https://www.kicktipp.de/info/profil/login', { waitUntil: 'networkidle' });
-    await page.fill('input[name="loginname"]', process.env.KICKTIPP_USERNAME);
-    await page.fill('input[name="passwort"]', process.env.KICKTIPP_PASSWORD);
-    await page.click('input[type="submit"], button[type="submit"]');
+    await page.fill('input[type="email"]', process.env.KICKTIPP_USERNAME);
+    await page.fill('input[type="password"]', process.env.KICKTIPP_PASSWORD);
+    await page.click('button[type="submit"]');
     await page.waitForLoadState('networkidle');
 
     // Prüfe ob Login erfolgreich
