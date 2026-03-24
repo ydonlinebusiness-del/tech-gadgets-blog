@@ -2,7 +2,7 @@ name: F1 Sprint Qualifying Update
 
 on:
   schedule:
-    - cron: '30 13 * * 6'  # Sa 13:30 UTC (15:30 CET) - nach dem Sprint-Qualifying
+    - cron: '0 9 * * 6'  # Sa 11:00 CET (09:00 UTC)
   workflow_dispatch:
 
 jobs:
