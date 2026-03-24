@@ -166,9 +166,10 @@ async function enterPredictions(predictions) {
     }
 
     // Speichern
-    const saveButton = await page.$('button:has-text("Tipps speichern"), input[value*="speichern"]');
+    const saveButton = await page.$('button:has-text("Tipps speichern"), input[value*="speichern"], button[type="submit"]');
     if (saveButton) {
-      await saveButton.click();
+      await saveButton.scrollIntoViewIfNeeded();
+      await saveButton.click({ force: true });
       await page.waitForLoadState('networkidle');
       console.log('[F1] ✅ Tipps erfolgreich gespeichert!');
     } else {
