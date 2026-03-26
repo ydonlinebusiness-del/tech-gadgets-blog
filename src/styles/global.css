@@ -4,6 +4,8 @@
    Accent: Orange #f97316
    ============================================ */
 
+@import "tailwindcss";
+
 :root {
 	--accent: #f97316;
 	--accent-dark: #c2540a;

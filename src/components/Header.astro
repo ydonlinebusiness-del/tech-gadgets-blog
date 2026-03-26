@@ -3,13 +3,13 @@ import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
 ---
 
-<header>
-	<nav>
-		<a href="/" class="site-logo" aria-label={`${SITE_TITLE} - Home`}>
-			<span class="logo-icon">⚡</span>
-			<span class="logo-text">{SITE_TITLE}</span>
+<header class="sticky top-0 z-[100] px-6 bg-white/95 backdrop-blur-sm border-b border-[#e8ecf0] shadow-[0_1px_4px_rgba(0,0,0,0.04)] header-accent">
+	<nav class="flex items-center justify-between max-w-[1000px] mx-auto h-[60px]">
+		<a href="/" class="flex items-center gap-1.5 no-underline text-[#0f1219] font-extrabold text-[1.15rem] tracking-tight" aria-label={`${SITE_TITLE} - Home`}>
+			<span class="text-[1.3rem]">⚡</span>
+			<span>{SITE_TITLE}</span>
 		</a>
-		<div class="nav-links">
+		<div class="flex items-center gap-1">
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/blog">All Reviews</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
@@ -18,19 +18,8 @@ import HeaderLink from './HeaderLink.astro';
 </header>
 
 <style>
-	header {
-		position: sticky;
-		top: 0;
-		z-index: 100;
-		margin: 0;
-		padding: 0 1.5em;
-		background: rgba(255, 255, 255, 0.95);
-		backdrop-filter: blur(8px);
-		border-bottom: 1px solid #e8ecf0;
-		box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-	}
 	/* Orange accent line at very top — from 21st.dev MinimalModernHero */
-	header::before {
+	.header-accent::before {
 		content: '';
 		position: absolute;
 		top: 0;
@@ -38,54 +27,5 @@ import HeaderLink from './HeaderLink.astro';
 		width: 40%;
 		height: 2px;
 		background: linear-gradient(90deg, #f97316, transparent);
-	}
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		max-width: 1000px;
-		margin: 0 auto;
-		height: 60px;
-	}
-	.site-logo {
-		display: flex;
-		align-items: center;
-		gap: 0.4rem;
-		text-decoration: none;
-		color: #0f1219;
-		font-weight: 800;
-		font-size: 1.15rem;
-	}
-	.logo-icon {
-		font-size: 1.3rem;
-	}
-	.logo-text {
-		letter-spacing: -0.02em;
-	}
-	.nav-links {
-		display: flex;
-		align-items: center;
-		gap: 0.25rem;
-	}
-	.nav-links :global(a) {
-		padding: 0.4em 0.75em;
-		color: #444;
-		text-decoration: none;
-		font-size: 0.9rem;
-		font-weight: 500;
-		border-radius: 6px;
-		border-bottom: none;
-		transition: background 0.15s, color 0.15s;
-	}
-	.nav-links :global(a:hover),
-	.nav-links :global(a.active) {
-		background: #fff7ed;
-		color: #f97316;
-	}
-	@media (max-width: 480px) {
-		.nav-links :global(a) {
-			padding: 0.4em 0.4em;
-			font-size: 0.82rem;
-		}
 	}
 </style>
