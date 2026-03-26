@@ -6,6 +6,7 @@ updatedDate: 2026-03-07
 category: "Buying Guide"
 tags: ["mechanical keyboard", "budget", "gaming", "productivity"]
 affiliateDisclaimer: true
+pinterestPinned: true
 productName: "Mechanical Keyboards"
 productPriceRange: "$47-$95"
 ---
@@ -28,7 +29,7 @@ productPriceRange: "$47-$95"
 
 ## Why Trust This Guide?
 
-We evaluated 12 mechanical keyboards under $100 over 4 weeks, logging 200+ hours of typing across programming sessions, competitive gaming, and daily office work. Each board was scored on typing feel, build quality, wireless stability (where applicable), software programmability, and long-term value for money.
+This guide is based on thorough research: we analyzed spec sheets from manufacturers, reviewed benchmark data and typing tests from Keyboard University, Rtings, and r/MechanicalKeyboards, and aggregated hundreds of verified user reviews from Amazon. Each board was assessed on typing feel, build quality, wireless stability (where applicable), software programmability, and value for money. All prices were verified in March 2026.
 
 All products on this list have hot-swappable PCBs. If a keyboard under $100 doesn't have hot-swap in 2026, we didn't include it — there are too many great options that do.
 
@@ -135,7 +136,7 @@ All products on this list have hot-swappable PCBs. If a keyboard under $100 does
 
 **The wireless advantage at this price:** For $60, most wireless keyboards offer either Bluetooth *or* 2.4GHz. The RK87 gives you both, plus wired USB-C — a setup that lets you connect to your desktop via 2.4GHz (zero lag), your laptop via Bluetooth, and your Steam Deck or work computer via USB-C, all switchable via a function-key shortcut.
 
-**Battery life:** In our testing, the RK87 lasted 80 hours with RGB at 50% brightness. With RGB completely off, real-world users consistently report 180-200+ hours per charge from the 3900mAh battery. A full charge from flat takes approximately 2.5 hours via USB-C.
+**Battery life:** According to manufacturer specs and verified user reports, the RK87 lasts 80 hours with RGB at 50% brightness. With RGB completely off, real-world users consistently report 180-200+ hours per charge from the 3900mAh battery. A full charge from flat takes approximately 2.5 hours via USB-C.
 
 **For first-time mechanical keyboard buyers:** The RK87 is an excellent first keyboard. The hot-swap PCB means you can try Red (linear) switches now, then swap to Brown (tactile) or silent switches later as your preferences develop — without replacing the whole board. The build quality far exceeds the price, with a solid plastic chassis that doesn't flex or rattle.
 

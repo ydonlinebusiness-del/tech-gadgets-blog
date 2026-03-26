@@ -29,7 +29,7 @@ productPriceRange: "$649–$999"
 
 ## Why Trust This Guide?
 
-We tested and compared 12 mirrorless cameras in the sub-$1000 category over 8 weeks in early 2026, evaluating autofocus accuracy, real-world video quality, battery life, and ergonomics across photography, vlogging, and travel use cases. All prices are verified against Amazon, B&H Photo, and manufacturer sites as of March 2026.
+This guide is based on thorough research: we analyzed spec sheets, reviewed benchmark data and sample footage from DPReview, TheCameraStoreTV, and Imaging Resource, and cross-referenced verified user reviews from Amazon and photography communities. We evaluated autofocus accuracy, video quality, battery life, and ergonomics. All prices are verified against Amazon, B&H Photo, and manufacturer sites as of March 2026.
 
 ---
 
@@ -69,7 +69,7 @@ Ergonomically, the R10 is genuinely comfortable despite its small size: twin top
 - Weight: 450g (body only)
 - Price: $909 (body only)
 
-The Z50 II is Nikon's direct answer to the question: "What's the easiest mirrorless camera to learn on?" The menus are logically structured, the physical controls are labeled clearly, and Nikon's subject detection autofocus requires nothing more than pointing the camera at your subject for it to lock on and track. In our testing, subject acquisition took under 0.2 seconds from a cold start — fast enough for candid street photography where the moment arrives and disappears in under a second.
+The Z50 II is Nikon's direct answer to the question: "What's the easiest mirrorless camera to learn on?" The menus are logically structured, the physical controls are labeled clearly, and Nikon's subject detection autofocus requires nothing more than pointing the camera at your subject for it to lock on and track. According to verified reviews and manufacturer data, subject acquisition takes under 0.2 seconds from a cold start — fast enough for candid street photography where the moment arrives and disappears in under a second.
 
 The most significant upgrade over its predecessor is 10-bit N-Log internal video recording, which was previously exclusive to cameras costing $1,500 or more. 10-bit recording captures 4x more color information per channel than 8-bit, giving video editors dramatically more latitude to correct exposure, white balance, and skin tones in post. For anyone building a YouTube channel or selling video footage, this feature alone can justify the price over cheaper alternatives.
 

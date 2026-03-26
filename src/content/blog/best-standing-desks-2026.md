@@ -28,7 +28,7 @@ productPriceRange: "$169–$950"
 
 ## Why Trust This Guide?
 
-We evaluated over 15 electric standing desks across key criteria: stability at maximum height, motor noise levels (measured in decibels), weight capacity, warranty coverage, and real-world assembly experience. Each desk was used for a minimum of 4 weeks across different workflows — from dual-monitor video editing setups to minimalist laptop workstations.
+This guide is based on thorough research: we analyzed stability data, motor noise specs, and warranty terms from manufacturer pages, reviewed expert assessments from Wirecutter, Autonomous, and r/StandingDesk, and aggregated verified user reviews from Amazon. We focused on stability at maximum height, motor quality, weight capacity, and assembly experience. All prices were verified in March 2026.
 
 ---
 

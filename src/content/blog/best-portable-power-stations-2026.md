@@ -29,7 +29,7 @@ pinterestPinned: false
 
 ## Why Trust This Guide?
 
-We spent 6 weeks hands-on with all five units, running real-world load tests — powering a 45W mini-fridge continuously, charging laptops and smartphones, running a CPAP machine overnight, and draining/recharging from solar panels at various wattages. We verified every capacity claim against measured watt-hours at the outlet (not the battery), and confirmed pricing against Amazon, the brand's official stores, and major retailers as of March 2026.
+This guide is based on thorough research: we analyzed capacity claims against independently measured watt-hours reported by reviewers at Wirecutter, OutdoorGearLab, and r/MrPositive13, cross-referenced user experiences from Amazon and YouTube long-term reviews. We focused on real-world usable capacity (not rated capacity), charging speed, and solar input performance. Pricing was confirmed against Amazon, brand stores, and major retailers as of March 2026.
 
 ---
 
@@ -209,7 +209,7 @@ All five units in this guide use **LiFePO4** (lithium iron phosphate) batteries,
 - **Safety:** LiFePO4 chemistry cannot undergo thermal runaway under normal operating conditions. There's no risk of fire or explosion from overcharging, puncture, or heat. NMC batteries can enter thermal runaway in edge cases — not common, but a meaningful safety distinction.
 - **Temperature tolerance:** LiFePO4 performs better in cold temperatures. Expect 15–20% capacity reduction at 14°F (−10°C) vs. 40–50% for NMC.
 
-**Avoid any power station under $200 that claims high capacity.** Unknown brands frequently lie about Wh ratings — a unit claiming "500Wh" may only deliver 180–220Wh in real-world testing. Stick to EcoFlow, Bluetti, Anker, or Jackery, where independent testers have verified the specs.
+**Avoid any power station under $200 that claims high capacity.** Unknown brands frequently lie about Wh ratings — a unit claiming "500Wh" may only deliver 180–220Wh of usable capacity — a fact confirmed by independent reviewers. Stick to EcoFlow, Bluetti, Anker, or Jackery, where independent testers have verified the specs.
 
 ---
 

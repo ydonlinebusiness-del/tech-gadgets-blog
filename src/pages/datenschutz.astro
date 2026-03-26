@@ -1,0 +1,184 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const updated = '26. März 2026';
+---
+
+<!doctype html>
+<html lang="de">
+	<head>
+		<BaseHead
+			title="Datenschutzerklärung | TechPickr"
+			description="Datenschutzerklärung von TechPickr gemäß DSGVO."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="legal-page">
+				<h1>Datenschutzerklärung</h1>
+				<p class="subtitle">Stand: {updated}</p>
+
+				<section>
+					<h2>1. Verantwortlicher</h2>
+					<p>
+						Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:<br /><br />
+						Yannick Drouvé<br />
+						[Straße und Hausnummer]<br />
+						[PLZ] [Ort]<br />
+						Deutschland<br />
+						E-Mail: <a href="mailto:[deine@email.de]">[deine@email.de]</a>
+					</p>
+				</section>
+
+				<section>
+					<h2>2. Hosting</h2>
+					<p>
+						Diese Website wird über <strong>Cloudflare Pages</strong> (Cloudflare, Inc., 101 Townsend St.,
+						San Francisco, CA 94107, USA) gehostet. Cloudflare verarbeitet beim Aufruf dieser Website
+						Server-Logdaten, darunter IP-Adressen, Browsertyp, aufgerufene Seiten und Zeitstempel.
+						Dies ist technisch notwendig für die Bereitstellung der Website und erfolgt auf Basis von
+						Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse). Weitere Informationen findest du
+						in der{' '}
+						<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">
+							Datenschutzerklärung von Cloudflare
+						</a>.
+					</p>
+				</section>
+
+				<section>
+					<h2>3. Datenerhebung auf dieser Website</h2>
+					<p>
+						Wir erheben selbst <strong>keine personenbezogenen Daten</strong> von Besuchern dieser
+						Website. Es werden keine Cookies gesetzt, kein Web-Tracking durchgeführt und keine
+						Analyse-Tools (z. B. Google Analytics) verwendet.
+					</p>
+				</section>
+
+				<section>
+					<h2>4. Affiliate-Links (Amazon Associates)</h2>
+					<p>
+						Diese Website nimmt am <strong>Amazon Associates-Partnerprogramm</strong> teil. Wenn du
+						auf einen Affiliate-Link klickst und auf Amazon einkaufst, erhalten wir eine kleine
+						Provision — für dich entstehen dabei keine zusätzlichen Kosten.
+					</p>
+					<p>
+						Beim Klick auf einen Amazon-Link werden Daten an Amazon übertragen (u. a. deine
+						IP-Adresse und der Verweis auf unsere Website). Amazon setzt dabei Cookies, um den
+						Einkauf unserer Empfehlung zuzuordnen. Wir haben keinen Zugriff auf diese Daten.
+						Weitere Informationen findest du in der{' '}
+						<a href="https://www.amazon.de/gp/help/customer/display.html?nodeId=201909010" target="_blank" rel="noopener noreferrer">
+							Datenschutzerklärung von Amazon
+						</a>.
+					</p>
+				</section>
+
+				<section>
+					<h2>5. Pinterest</h2>
+					<p>
+						Wir betreiben ein eigenes Pinterest-Geschäftskonto und teilen dort Inhalte aus diesem
+						Blog. Dabei werden keine Besucherdaten dieser Website an Pinterest übertragen. Unsere
+						Website enthält keine eingebetteten Pinterest-Widgets oder Tracking-Pixel.
+					</p>
+				</section>
+
+				<section>
+					<h2>6. Externe Links</h2>
+					<p>
+						Diese Website enthält Links zu externen Websites. Für die Datenschutzpraktiken dieser
+						Seiten sind deren Betreiber verantwortlich. Wir empfehlen, die jeweiligen
+						Datenschutzerklärungen zu lesen.
+					</p>
+				</section>
+
+				<section>
+					<h2>7. Deine Rechte</h2>
+					<p>Nach der DSGVO hast du folgende Rechte gegenüber dem Verantwortlichen:</p>
+					<ul>
+						<li>Recht auf <strong>Auskunft</strong> über deine gespeicherten Daten (Art. 15 DSGVO)</li>
+						<li>Recht auf <strong>Berichtigung</strong> unrichtiger Daten (Art. 16 DSGVO)</li>
+						<li>Recht auf <strong>Löschung</strong> („Recht auf Vergessenwerden", Art. 17 DSGVO)</li>
+						<li>Recht auf <strong>Einschränkung</strong> der Verarbeitung (Art. 18 DSGVO)</li>
+						<li>Recht auf <strong>Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
+						<li>Recht auf <strong>Widerspruch</strong> gegen die Verarbeitung (Art. 21 DSGVO)</li>
+					</ul>
+					<p>
+						Außerdem hast du das Recht, dich bei einer Datenschutzbehörde zu beschweren. Die
+						zuständige Aufsichtsbehörde in Deutschland richtet sich nach deinem Bundesland.
+					</p>
+				</section>
+
+				<section>
+					<h2>8. Kontakt bei Datenschutzfragen</h2>
+					<p>
+						Bei Fragen zum Datenschutz wende dich bitte per E-Mail an:{' '}
+						<a href="mailto:[deine@email.de]">[deine@email.de]</a>
+					</p>
+				</section>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	main {
+		max-width: 720px;
+		margin: 0 auto;
+		padding: 3rem 1.5rem 5rem;
+	}
+	.legal-page h1 {
+		font-size: 2rem;
+		font-weight: 800;
+		color: #0f172a;
+		margin: 0 0 0.25rem;
+		letter-spacing: -0.03em;
+	}
+	.subtitle {
+		color: #94a3b8;
+		font-size: 0.88rem;
+		margin: 0 0 2.5rem;
+	}
+	section {
+		margin-bottom: 2rem;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid #f1f5f9;
+	}
+	section:last-child {
+		border-bottom: none;
+	}
+	h2 {
+		font-size: 1.1rem;
+		font-weight: 700;
+		color: #0f172a;
+		margin: 0 0 0.75rem;
+	}
+	p {
+		color: #475569;
+		line-height: 1.75;
+		margin: 0 0 0.75rem;
+		font-size: 0.95rem;
+	}
+	ul {
+		color: #475569;
+		line-height: 1.75;
+		font-size: 0.95rem;
+		padding-left: 1.5rem;
+		margin: 0 0 0.75rem;
+	}
+	li {
+		margin-bottom: 0.3rem;
+	}
+	a {
+		color: #f97316;
+		text-decoration: none;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+	strong {
+		color: #334155;
+	}
+</style>

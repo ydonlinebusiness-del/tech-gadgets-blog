@@ -6,6 +6,7 @@ updatedDate: 2026-03-09
 category: "Buying Guide"
 tags: ["laptops", "budget laptops", "best laptops 2026", "laptops under 800"]
 affiliateDisclaimer: true
+pinterestPinned: true
 productName: "Laptops Under $800"
 productPriceRange: "$599–$799"
 ---

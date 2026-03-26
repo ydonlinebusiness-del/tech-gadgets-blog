@@ -28,7 +28,7 @@ productPriceRange: "$289–$699"
 
 ## Why Trust This Guide?
 
-We tested 12 pairs of noise-cancelling headphones over 8 weeks across commutes, open-plan offices, flights, and home studios. We evaluated ANC performance across four noise environments (traffic, office chatter, airplane cabin, coffee shop), sound quality across 20 reference tracks, and comfort during sessions of 2+ hours. Prices were verified on Amazon in March 2026.
+This guide is based on in-depth research: we analyzed ANC measurements and frequency response data from RTINGS.com, SoundGuys, and What Hi-Fi, and cross-referenced hundreds of verified user reviews from Amazon and Reddit. We assessed ANC performance across real-world noise environments, sound quality, and comfort for extended wear. Prices were verified on Amazon in March 2026.
 
 ---
 

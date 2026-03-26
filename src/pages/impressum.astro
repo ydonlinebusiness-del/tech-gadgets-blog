@@ -1,0 +1,130 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="de">
+	<head>
+		<BaseHead
+			title="Impressum | TechPickr"
+			description="Impressum und Anbieterkennzeichnung von TechPickr gemäß § 5 TMG."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="legal-page">
+				<h1>Impressum</h1>
+				<p class="subtitle">Angaben gemäß § 5 TMG</p>
+
+				<section>
+					<h2>Verantwortlich für den Inhalt</h2>
+					<p>
+						Yannick Drouvé<br />
+						[Straße und Hausnummer]<br />
+						[PLZ] [Ort]<br />
+						Deutschland
+					</p>
+				</section>
+
+				<section>
+					<h2>Kontakt</h2>
+					<p>
+						E-Mail: <a href="mailto:[deine@email.de]">[deine@email.de]</a>
+					</p>
+				</section>
+
+				<section>
+					<h2>Hinweis zu Affiliate-Links</h2>
+					<p>
+						Diese Website enthält Affiliate-Links, insbesondere zu Amazon.de. Wenn du über einen
+						solchen Link einkaufst, erhalten wir eine kleine Provision — für dich entstehen dabei
+						keine zusätzlichen Kosten. Alle Empfehlungen basieren auf unserer eigenen Einschätzung
+						und sind unabhängig von Provisionen.
+					</p>
+				</section>
+
+				<section>
+					<h2>Haftungsausschluss</h2>
+					<h3>Haftung für Inhalte</h3>
+					<p>
+						Die Inhalte dieser Seite wurden mit größtmöglicher Sorgfalt erstellt. Für die
+						Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine
+						Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene
+						Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.
+					</p>
+					<h3>Haftung für Links</h3>
+					<p>
+						Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir
+						keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine
+						Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige
+						Anbieter oder Betreiber der Seiten verantwortlich.
+					</p>
+					<h3>Urheberrecht</h3>
+					<p>
+						Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten
+						unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung,
+						Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes
+						bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+					</p>
+				</section>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	main {
+		max-width: 720px;
+		margin: 0 auto;
+		padding: 3rem 1.5rem 5rem;
+	}
+	.legal-page h1 {
+		font-size: 2rem;
+		font-weight: 800;
+		color: #0f172a;
+		margin: 0 0 0.25rem;
+		letter-spacing: -0.03em;
+	}
+	.subtitle {
+		color: #94a3b8;
+		font-size: 0.88rem;
+		margin: 0 0 2.5rem;
+	}
+	section {
+		margin-bottom: 2rem;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid #f1f5f9;
+	}
+	section:last-child {
+		border-bottom: none;
+	}
+	h2 {
+		font-size: 1.1rem;
+		font-weight: 700;
+		color: #0f172a;
+		margin: 0 0 0.75rem;
+	}
+	h3 {
+		font-size: 0.95rem;
+		font-weight: 600;
+		color: #334155;
+		margin: 1.25rem 0 0.5rem;
+	}
+	p {
+		color: #475569;
+		line-height: 1.75;
+		margin: 0 0 0.75rem;
+		font-size: 0.95rem;
+	}
+	a {
+		color: #f97316;
+		text-decoration: none;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+</style>
