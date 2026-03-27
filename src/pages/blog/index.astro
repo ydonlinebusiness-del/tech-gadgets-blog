@@ -72,11 +72,6 @@ const categories = ['All', ...new Set(posts.map(p => p.data.category).filter(Boo
 
 							<!-- Card body -->
 							<div class="p-4 flex flex-col flex-1 gap-1.5">
-								{post.data.category && (
-									<span class="text-[11px] font-bold text-[#f97316] uppercase tracking-[0.07em]">
-										{post.data.category}
-									</span>
-								)}
 								<h2 class="text-[0.95rem] font-bold text-[#0f172a] leading-snug m-0 line-clamp-2">
 									{post.data.title}
 								</h2>
