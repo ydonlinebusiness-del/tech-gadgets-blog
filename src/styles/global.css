@@ -72,12 +72,12 @@ strong, b {
 	color: var(--color-heading);
 }
 
-/* ---- Links ---- */
-a {
+/* ---- Links (only bare links without Tailwind classes) ---- */
+a:not([class]) {
 	color: var(--accent);
 	text-decoration: none;
 }
-a:hover {
+a:not([class]):hover {
 	color: var(--accent-dark);
 	text-decoration: underline;
 }
